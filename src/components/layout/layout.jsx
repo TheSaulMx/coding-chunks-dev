@@ -18,6 +18,7 @@ function Layout() {
                         <Link className="Link" to="/FAQ">FAQ</Link>
                     </li>
                 </ul>
+                <button><Link className="Link" to={"/newPost"}>New Post</Link></button>
             </nav>
             <section className="section-container">
                 <Outlet />
