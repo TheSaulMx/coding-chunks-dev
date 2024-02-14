@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+}
+
+.main-content {
+    width: 80%;
+    padding: 1rem;
+}
+
+.aside-content {
+    width: 20%;
+    background: cyan;
+    padding: 1rem;
+}
+
+.post-card {
+    border-bottom: 1px solid #000;
+}
