@@ -1,19 +1,34 @@
-import { useState } from "react";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { useState } from 'react';
 
 function PostForm() {
 
-    const [title, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState();
 
     return (
-        <div>
-            <form action="">
-                <label>Title:
-                    <input type="text" value={title} onChange={e => { setTitle(e.target.value); }} />
-                </label>
+        <div className="">
+            <h2>Using CKEditor&nbsp;5 build in React</h2>
+            <CKEditor
+                editor={ClassicEditor}
+                data="<p>Insert post content</p>"
+                config={{
+                }}
+                // onReady={editor => {
+                //     // You can store the "editor" and use when it is needed.
+                //     // console.log('Editor is ready to use!', editor);
+                // }}
+                onChange={(event, editor) => {
+                    setEditorContent(editor.getData());
+                }}
+                // onBlur={(event, editor) => {
 
-            </form>
-            <button onClick={() => console.log("TITLE: ", title)} >click</button>
+                // }}
+            // onFocus={(event, editor) => {
+            // }}
+            />
 
+            <div dangerouslySetInnerHTML={{__html:editorContent}} />
         </div>
     );
 }
